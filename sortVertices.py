@@ -14,7 +14,6 @@ def getNearest(v1, v2, discard):
 
 
 if __name__ == '__main__':
-    now = time.time()
     v1 = np.array([0, 5, 0])
     v2 = np.array([5, 0, 0])
     v3 = np.array([-5, 0, 0])
@@ -28,14 +27,8 @@ if __name__ == '__main__':
     selected_indices = list()
     selected_indices.append(0)
     for i in range(1, len(centered_vertices)):
-        #en yakin acili noktanin indexi
         nearest = getNearest(current, centered_vertices, selected_indices)
         selected_indices.append(nearest)
         current = centered_vertices[nearest]
 
-    later = time.time()
-    print(later-now)
-    # sirayla noktalari yaz
     print(selected_indices)
-    for i in selected_indices:
-        print(vertices[i])
